@@ -9,12 +9,6 @@ const path = require('path');
             if (dirObj.isFile()) {
                 let extName = path.extname(dirObj.name);
                 let fileName = path.basename(dirObj.name, extName);
-                // fs.stat(path.resolve(folderPath, dirObj.name), (error, file) => {
-                //     if (error) throw error;
-                //     let extName = path.extname(dirObj.name);
-                //     let fileName = path.basename(dirObj.name, extName);
-                //     console.log(`${fileName} - ${extName.slice(1)} - ${file.size}`);
-                // });
                 const fileStat = await fs.promises.stat(path.resolve(folderPath, dirObj.name));
                 console.log(`${fileName} - ${extName.slice(1)} - ${fileStat.size}`);
                 
